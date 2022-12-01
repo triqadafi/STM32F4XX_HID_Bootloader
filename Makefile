@@ -5,6 +5,9 @@
 # ------------------------------------------------
 # Generic Makefile (based on gcc)
 #
+# clock skew problem
+# $ find . -type f | xargs -n 5 touch
+#
 # ChangeLog :
 #	2017-02-10 - Several enhancements + project update mode
 #   2015-07-22 - first version
@@ -24,7 +27,7 @@ endif
 ######################################
 # target
 ######################################
-TARGET = hid_bootloader
+TARGET = STM32F401_hid_bootloader
 
 
 ######################################
@@ -79,7 +82,8 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Src/usbd_customhid.c
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32f407xx.s
+startup_stm32f401ccux.s
+# startup_stm32f407xx.s
 
 
 #######################################
@@ -125,7 +129,8 @@ AS_DEFS =
 # C defines
 C_DEFS =  \
 -DUSE_HAL_DRIVER \
--DSTM32F407xx
+-DSTM32F401xC
+# -DSTM32F407xx
 
 
 # AS includes
@@ -160,7 +165,8 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = STM32F407VETx_FLASH.ld
+LDSCRIPT = STM32F401CCUX_FLASH.ld
+# LDSCRIPT = STM32F407VETx_FLASH.ld
 
 # libraries
 LIBS = -lc -lm -lnosys 
