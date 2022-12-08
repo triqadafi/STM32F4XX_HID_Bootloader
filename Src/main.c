@@ -340,17 +340,17 @@ static void MX_GPIO_Init(void)
 
   /* Configure GPIO pin Output Level */
 
-  /* Configure GPIO pin : PA12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_12;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  // /* Configure GPIO pin : PA12 */
+  // GPIO_InitStruct.Pin = GPIO_PIN_12;
+  // GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  // GPIO_InitStruct.Pull = GPIO_NOPULL;
+  // GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  // HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* Configure GPIO pin : PB2 */
   GPIO_InitStruct.Pin = BOOT_1_PIN;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(BOOT_1_PORT, &GPIO_InitStruct);
 
   /* Configure GPIO pin : PE0 */
